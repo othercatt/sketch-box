@@ -1,15 +1,6 @@
-// TO-DO
-
-
-
-
-// GLOBAL VARIABLES
-// Refactor later to allow customization.
-let gridSize = 16; // Coordinate this with --grid-size in css file.
+// STARTING GLOBAL VARIABLES
+let gridSize = 16;
 let sketchbox = document.getElementById('sketchbox');
-
-let eraseBtn = document.getElementById('erase-button');
-eraseBtn.addEventListener('click', erase);
 
 let blackBtn = document.getElementById('black-button');
 blackBtn.addEventListener('click', selectBlackPaint);
@@ -32,14 +23,41 @@ let bluePaint = false;
 let purplePaint = false;
 let rainbowPaint = false;
 
+let eraseBtn = document.getElementById('erase-button');
+eraseBtn.addEventListener('click', erase);
+
+let gridBtn16 = document.getElementById('grid-16');
+gridBtn16.addEventListener('click', () => {
+  gridSize = 16;
+  erase();
+});
+
+let gridBtn24 = document.getElementById('grid-24');
+gridBtn24.addEventListener('click', () => {
+  gridSize = 24;
+  erase();
+});
+
+let gridBtn32 = document.getElementById('grid-32');
+gridBtn32.addEventListener('click', () => {
+  gridSize = 32;
+  erase();
+});
 
 
 // GAME FUNCTIONS
-
 function populateSketchbox() {
   for (let i = 0; i < (gridSize ** 2); i++) {
     let tile =  document.createElement('div');
     tile.classList.add('sketchbox-tile');
+    if (gridSize == 16) {
+      tile.classList.add('tile-16');
+    } else if (gridSize == 24) {
+      tile.classList.add('tile-24');
+    } else if (gridSize == 32) {
+      tile.classList.add('tile-32');
+    }
+
     tile.addEventListener('mouseover', () => {
       if (blackPaint == true) {
         makeBlack();
@@ -54,6 +72,15 @@ function populateSketchbox() {
       }
     });
     sketchbox.appendChild(tile);
+  };
+
+  let num = Math.floor(Math.random() * 100);
+  if (num == 42 && gridSize == 16) {
+    const tiles = document.querySelectorAll('.sketchbox-tile');
+    tiles.forEach(tile => {
+      tile.remove();
+     });
+    drawAmongi();
   };
 };
 
@@ -123,18 +150,52 @@ function selectRainbowPaint() {
 };
 
 function erase() {
-  // Remove all old tiles
   const tiles = document.querySelectorAll('.sketchbox-tile');
   tiles.forEach(tile => {
     tile.remove();
   });
-  // Generate new tiles
   populateSketchbox();
 };
 
 
 
-
 // PAGE PROCESSES
-
 populateSketchbox();
+
+
+
+
+
+
+
+function drawAmongi() {
+
+  let targets = [
+    184, 185, 186, 199, 200, 215, 216, 217, 218, 232, 233, 234, 248, 250
+  ];
+
+  for (let i = 0; i < 256; i++) {
+    let tile =  document.createElement('div');
+    tile.classList.add('sketchbox-tile');
+    tile.classList.add('tile-16');
+    
+    if (targets.includes(i)) {
+      tile.classList.add('amongi-tile');
+    }
+
+    tile.addEventListener('mouseover', () => {
+      if (blackPaint == true) {
+        makeBlack();
+      } else if (pinkPaint == true) {
+        makePink();
+      } else if (bluePaint == true) {
+        makeBlue();
+      } else if (purplePaint == true) {
+        makePurple();
+      } else if (rainbowPaint == true) {
+        makeRainbow();
+      }
+    });
+    sketchbox.appendChild(tile);
+  };
+};

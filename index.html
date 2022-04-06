@@ -6,11 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel='stylesheet' href='./styles.css'>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet"> 
 </head>
 <body>
 
   <div id='header'>
-    <h1 id='title'>The One-of-a-Kind Spectacular SketchBox</h1>
+    <h1>The One-of-a-Kind Spectacular SketchBox</h1>
   </div>
 
   <div id='main-body'>
@@ -26,14 +29,23 @@
           <button id='rainbow-button' class='color-button'>Rainbow</button>
         </div>
         <div id='function-buttons'>
-          <button id='erase-button'>Erase</button>
+          <button class='func-button' id='erase-button'>Erase</button>
+          <button class='func-button' id='grid-16'>16x16 Grid</button>
+          <button class='func-button' id='grid-24'>24x24 Grid</button>
+          <button class='func-button' id='grid-32'>32x32 Grid</button>
         </div>
-      </div>  
+      </div>
     </div>
   </div>
 
   <div id='footer'>
-    <p>Footer information</p>
+    <p>Copyright © 
+      <a target="_blank" href="https://www.OtherCatt.com/">
+        OtherCatt Inc.</a>
+      <br>
+      In conjunction with 
+      <a target="_blank" href="https://www.theodinproject.com/">
+        The Odin Project</a></p>
   </div>
 
   <script src='sketchbox.js' defer></script>

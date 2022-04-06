@@ -1,23 +1,7 @@
-/* TO-DO
-
-Set style for:
-  header background
-  title text
-
-sketchbox container and sketchpad size
-flexbox styles - set squares across and down
-set hover reactions for squares
-
-*/
-
-
-
 /* GLOBAL SETTINGS */
 :root {
   --sketchbox-width: 480px;
   --sketchbox-height: 480px;
-  --grid-size: 16; /* Coordinate this with gridSize var in js file */
-
 }
 
 *,
@@ -31,18 +15,25 @@ html {
   background-image: url(images/background.jpg);
   background-position: center;
   background-size: cover;
-  
 }
 
-/* FUNCTION/REACTION CLASSES */
+h1 {
+  font-family: 'Press Start 2P', 'Times New Roman', Times, serif;
+  color: white;
+  text-shadow: 8px 10px 3px black;
+}
+
+a {
+  color: pink;
+}
 
 
 
 /* OBJECT SETTINGS */
 #header {
   width: 100%;
-  height: 96px;
   background-color: rebeccapurple;
+  padding: 32px 0px;
   text-align: center;
   display: flex;
   justify-content: center;
@@ -51,25 +42,20 @@ html {
 
 
 #main-body {
+  width: 100%;
   display: flex;
   justify-content: center;
-  margin-top: 100px;
-  margin-bottom: 100px;
-}
-
-#footer {
-  height: 36px;
-  background-color: darkblue;
-  color: white;
+  margin-top: 80px;
+  margin-bottom: 120px;
 }
 
 #sketchbox-container {
-  background-color: skyblue;
+  background-color: lightskyblue;
   width: 600px;
-  height: 600px;
+  height: 700px;
   border: 24px solid lightslategray;
   border-radius: 7% 7% 0 0;
-  box-shadow: 2px 14px 14px fuchsia;
+  box-shadow: 1px 12px 15px fuchsia;
   margin: 50px;
   display: flex;
   flex-direction: column;
@@ -87,27 +73,74 @@ html {
 }
 
 .sketchbox-tile {
-  width: calc((var(--sketchbox-width) / var(--grid-size)));
-  height: calc((var(--sketchbox-height) / var(--grid-size)));
-  background-color: beige;
+  background-color: cornflowerblue;
   box-sizing: border-box; /* Deducts border from tile size */
+}
+
+.amongi-tile {
+  background-color: maroon;
+}
+
+.tile-16 {
+  width: calc((var(--sketchbox-width) / 16 ));
+  height: calc((var(--sketchbox-height) / 16 ));
+}
+
+.tile-24 {
+  width: calc((var(--sketchbox-width) / 24 ));
+  height: calc((var(--sketchbox-height) / 24 ));
+}
+
+.tile-32 {
+  width: calc((var(--sketchbox-width) / 32 ));
+  height: calc((var(--sketchbox-height) / 32 ));
 }
 
 #button-container {
   width: 80%;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
 }
 
+#color-buttons {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 16px;
+}
 .color-button {
   font-weight: bold;
   height: 32px;
   width: 72px;
+  box-shadow: 2px 2px fuchsia;
 }
 
-#erase-button {
+.color-button:active{
+  box-shadow: -2px -2px purple;
+}
+
+#function-buttons {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.func-button {
   font-weight: bold;
   height: 32px;
-  width: 64px;
+  width: 96px;
+  box-shadow: 2px 2px fuchsia;
+}
+
+.func-button:active {
+  box-shadow: -2px -2px purple;
+}
+
+#footer {
+  width: 100%;
+  height: 36px;
+  background-color: darkblue;
+  padding: 12px 0px;
+  color: white;
+  text-align: center;
+  justify-content: center;
 }
