@@ -1,7 +1,8 @@
-/* Set style for:
+/* TO-DO
 
-header background
-title text
+Set style for:
+  header background
+  title text
 
 sketchbox container and sketchpad size
 flexbox styles - set squares across and down
@@ -9,12 +10,32 @@ set hover reactions for squares
 
 */
 
+
+
+/* GLOBAL SETTINGS */
 :root {
-  --sketchbox-width: 320px;
-  --sketchbox-height: 320px;
-  --grid-size: 16;
+  --sketchbox-width: 480px;
+  --sketchbox-height: 480px;
+  --grid-size: 16; /* Coordinate this with gridSize var in js file */
+
 }
 
+*,
+*::after,
+*::before {
+  padding: 0px;
+  margin: 0px;
+}
+
+html {
+  background-color: lightpink;
+}
+
+/* FUNCTION/REACTION CLASSES */
+
+
+
+/* OBJECT SETTINGS */
 #title {
   background-color: lightgray;
 }
@@ -25,12 +46,12 @@ set hover reactions for squares
 
 #sketchbox-container {
   background-color: skyblue;
-  width: 400px;
-  height: 400px;
+  width: 600px;
+  height: 600px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
 }
 
 #sketchbox {
@@ -44,12 +65,14 @@ set hover reactions for squares
 
 .sketchbox-tile {
   width: calc((var(--sketchbox-width) / var(--grid-size)));
-  height: calc((var(--sketchbox-width) / var(--grid-size)));
-  background-color: lightpink;
-  border: 1px solid navy;
+  height: calc((var(--sketchbox-height) / var(--grid-size)));
+  background-color: beige;
   box-sizing: border-box; /* Deducts border from tile size */
 }
 
-.make-black {
-  background-color: black;
+#button-container {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
