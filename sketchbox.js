@@ -3,7 +3,7 @@
 
 
 
-// Set global variables for page.
+// GLOBAL VARIABLES
 // Refactor later to allow customization.
 let gridSize = 16; // Coordinate this with --grid-size in css file.
 let sketchbox = document.getElementById('sketchbox');
@@ -14,14 +14,22 @@ eraseBtn.addEventListener('click', erase);
 let blackBtn = document.getElementById('black-button');
 blackBtn.addEventListener('click', selectBlackPaint);
 
-let redBtn = document.getElementById('red-button');
-redBtn.addEventListener('click', selectRedPaint);
+let pinkBtn = document.getElementById('pink-button');
+pinkBtn.addEventListener('click', selectPinkPaint);
+
+let blueBtn = document.getElementById('blue-button');
+blueBtn.addEventListener('click', selectBluePaint);
+
+let purpleBtn = document.getElementById('purple-button');
+purpleBtn.addEventListener('click', selectPurplePaint);
 
 let rainbowBtn = document.getElementById('rainbow-button');
 rainbowBtn.addEventListener('click', selectRainbowPaint);
 
 let blackPaint = true;
-let redPaint = false;
+let pinkPaint = false;
+let bluePaint = false;
+let purplePaint = false;
 let rainbowPaint = false;
 
 
@@ -35,8 +43,12 @@ function populateSketchbox() {
     tile.addEventListener('mouseover', () => {
       if (blackPaint == true) {
         makeBlack();
-      } else if (redPaint == true) {
-        makeRed();
+      } else if (pinkPaint == true) {
+        makePink();
+      } else if (bluePaint == true) {
+        makeBlue();
+      } else if (purplePaint == true) {
+        makePurple();
       } else if (rainbowPaint == true) {
         makeRainbow();
       }
@@ -49,8 +61,16 @@ function makeBlack() {
   event.target.style.backgroundColor = 'black';
 };
 
-function makeRed() {
-  event.target.style.backgroundColor = 'darkred';
+function makePink() {
+  event.target.style.backgroundColor = 'pink';
+};
+
+function makeBlue() {
+  event.target.style.backgroundColor = 'cyan';
+};
+
+function makePurple() {
+  event.target.style.backgroundColor = 'purple';
 };
 
 function makeRainbow() {
@@ -64,19 +84,41 @@ function makeRainbow() {
 
 function selectBlackPaint() {
   blackPaint = true;
-  redPaint = false;
+  pinkPaint = false;
+  bluePaint = false;
+  purplePaint = false;
   rainbowPaint = false;
 };
 
-function selectRedPaint() {
+function selectPinkPaint() {
   blackPaint = false;
-  redPaint = true;
+  pinkPaint = true;
+  bluePaint = false;
+  purplePaint = false;
+  rainbowPaint = false;
+};
+
+function selectBluePaint() {
+  blackPaint = false;
+  pinkPaint = false;
+  bluePaint = true;
+  purplePaint = false;
+  rainbowPaint = false;
+};
+
+function selectPurplePaint() {
+  blackPaint = false;
+  pinkPaint = false;
+  bluePaint = false;
+  purplePaint = true;
   rainbowPaint = false;
 };
 
 function selectRainbowPaint() {
   blackPaint = false;
-  redPaint = false;
+  pinkPaint = false;
+  bluePaint = false;
+  purplePaint = false;
   rainbowPaint = true;
 };
 
