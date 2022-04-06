@@ -1,0 +1,55 @@
+/* Set style for:
+
+header background
+title text
+
+sketchbox container and sketchpad size
+flexbox styles - set squares across and down
+set hover reactions for squares
+
+*/
+
+:root {
+  --sketchbox-width: 320px;
+  --sketchbox-height: 320px;
+  --grid-size: 16;
+}
+
+#title {
+  background-color: lightgray;
+}
+
+#footer {
+  background-color: lightgray;
+}
+
+#sketchbox-container {
+  background-color: skyblue;
+  width: 400px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#sketchbox {
+  box-sizing: content-box; /* Adds borders onto box width/height */
+  width: var(--sketchbox-width);
+  height: var(--sketchbox-height);
+  border: 1px solid black;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.sketchbox-tile {
+  width: calc((var(--sketchbox-width) / var(--grid-size)));
+  height: calc((var(--sketchbox-width) / var(--grid-size)));
+  background-color: lightpink;
+  border: 1px solid navy;
+  box-sizing: border-box; /* Deducts border from tile size */
+}
+
+.make-black {
+  background-color: black;
+}
